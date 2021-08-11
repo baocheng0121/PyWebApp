@@ -19,11 +19,17 @@ def home():
         return redirect(url_for('login'))
 
 
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     """
         main screen
     """
+    if request.method == 'POST':
+        pass
+
+    elif request.method == 'GET':
+        pass
+
     return render_template('login.html')
 
 
@@ -49,5 +55,5 @@ if __name__ == '__main__':
     IP:     127.0.0.1
     端口:   {}""".format(config['SETUP']['port']))
     print("="*80)
-    app.run(debug=True, port=config['SETUP']['port'])
+    app.run(debug=True, port=port)
 
